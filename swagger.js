@@ -5,7 +5,7 @@ const doc = {
     title: 'Winter2023 API',
     description: 'Contacts API'
   },
-  host: 'week01.onrender.com',
+  host: 'cse-341-webbackend2-2.onrender.com',
   schemes: ['https']
 };
 
