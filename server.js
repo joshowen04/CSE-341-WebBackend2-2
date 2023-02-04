@@ -1,9 +1,12 @@
+const inventoryRoutes = require('./routes/inventoryRoutes.js');
+
 const express = require('express'),
   app = express(),
   port = process.env.PORT || 3000;
 (mongoose = require('mongoose')),
   (cors = require('cors')),
-  (Contact = require('./models/contactsModels.js')), //created model loading here
+  (Users = require('./models/userModel.js')), //created model loading here
+  (Inventory = require('./models/inventoryModel.js')),
   (bodyParser = require('body-parser'));
 
 mongoose.Promise = global.Promise;
@@ -19,8 +22,10 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-routes = require('./routes/contactsRoutes.js'); //importing route
-routes(app); //register the route
+const inventoryRouter = require('./routes/inventoryRoutes.js'); //importing route
+inventoryRouter(app);
+const userRouter = require('./routes/userRoutes.js'); //importing route
+userRouter(app); //register the route
 
 app.listen(port, () => console.log(`listening on port ${port}`));
 
