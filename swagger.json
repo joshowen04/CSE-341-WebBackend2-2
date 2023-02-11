@@ -93,6 +93,36 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": ["any","any"]
+                },
+                "tags": {
+                  "example": ["any","any"]
+                },
+                "availability": {
+                  "example": true
+                },
+                "typeofPreparation": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
