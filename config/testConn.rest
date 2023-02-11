@@ -9,14 +9,36 @@ POST http://localhost:5000/inventory
 content-type: application/json
 
 {
-    "name": "Lemonade"
+    "name": "Lemonade760"
     , "description": "Freshly squeezed and absolutely delicious"
     , "ingredients": ["lemon","ice","water","sugar"]
-    , "tags": ["drink"]
+    , "tags": ["drink","bubbly"]
     , "availability": true
     , "typeofPreparation": "In Stock"
     , "price": 3.50
 }
+
+###
+delete http://localhost:5000/inventory/63e7378c5aad929118e32df4
+
+###
+get http://localhost:5000/inventory/63e72fc595b27d3d2f4e8732
+
+###
+## update contact:
+PUT http://localhost:5000/inventory/63e7256f5088ca515d562127
+content-type: application/json
+
+{
+    "name": "Lemonade760"
+    , "description": "Freshly squeezed and absolutely delicious"
+    , "ingredients": ["lemon","ice","water","sugar"]
+    , "tags": ["drink","bubbly","wine"]
+    , "availability": true
+    , "typeofPreparation": "In Stock"
+    , "price": 3.50
+}
+
 
 ###
 ## Get all users
@@ -35,10 +57,29 @@ content-type: application/json
     , "userLevel": "1"
     , "address": "address"
 }
-
+###
+###
+delete http://localhost:5000/users/63e73955c6cf7b000a486950
 
 ###
+get http://localhost:5000/users/63e73955c6cf7b000a486950
 
+###
+## update contact:
+PUT http://localhost:5000/users/63e73955c6cf7b000a486950
+content-type: application/json
+
+{
+    "firstName": "Linda"
+    , "lastName": "Owen"
+    , "email": "email"
+    , "password": "password123"
+    , "userLevel": "1"
+    , "address": "address"
+}
+
+###
+DELETE 
 //-----------------------------------------------------
 //Production:
 //-----------------------------------------------------
@@ -64,6 +105,8 @@ content-type: application/json
     , "price": 3.50
 }
 
+
+
 ###
 ## Get all users
 GET https://cse-341-webbackend2-2.onrender.com/users
@@ -81,3 +124,9 @@ content-type: application/json
     , "userLevel": "1"
     , "address": "address"
 }
+
+
+
+
+
+

@@ -32,7 +32,63 @@ create_user = function (req, res) {
   });
 };
 
+update_user = function (req, res) {
+  let user = {
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null,
+    userLevel: null,
+    address: null
+  };
+  for (parameter in req.body) {
+    //console.log(req.body[`${parameter}`]);
+
+    user[parameter] = req.body[`${parameter}`];
+    //console.log(item);
+  }
+  let validated = true;
+  for (value in user) {
+    if (user[value] === null) {
+      validated = false;
+      break;
+    }
+  }
+  if (validated) {
+    User.findOneAndUpdate({ _id: req.params.userId }, user, { new: true }, function (err, user) {
+      if (err) res.send(err);
+      res.status(204).json({ message: 'Item successfully updated' });
+    });
+  } else {
+    res.status(400).json('Please make sure to provide all of the required values');
+  }
+};
+
+read_user = function (req, res) {
+  User.findById(req.params.userId, function (err, user) {
+    if (err) res.send(err);
+    res.json(user);
+  });
+};
+
+delete_user = function (req, res) {
+  User.deleteOne({ _id: req.params.userId }, function (err, user) {
+    if (err) {
+      res.send(err);
+    } else {
+      if (user.deletedCount == 0) {
+        res.status(400).json({ message: 'No user exists with that ID' });
+      } else {
+        res.status(200).json({ message: 'User successfully deleted' });
+      }
+    }
+  });
+};
+
 module.exports = {
   list_all_users,
-  create_user
+  create_user,
+  delete_user,
+  update_user,
+  read_user
 };

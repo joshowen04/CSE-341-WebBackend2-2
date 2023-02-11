@@ -6,5 +6,10 @@ module.exports = function (app) {
   app.use(swaggerUi.serve);
 
   app.route('/inventory').get(inventory.list_all_inventory).post(inventory.create_inventory);
+  app
+    .route('/inventory/:inventoryId')
+    .get(inventory.read_inventory)
+    .put(inventory.update_inventory)
+    .delete(inventory.delete_inventory);
   app.route('/api-docs').get(swaggerUi.setup(swaggerDocument));
 };
