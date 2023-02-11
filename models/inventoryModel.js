@@ -16,14 +16,6 @@ const InventorySchema = new Schema(
     ingredients: [{ type: String, required: true }],
     tags: [{ type: String, requried: true }],
 
-    // users: [
-    //   {
-    //     name: { type: String, required: [true, 'Name is required'] },
-    //     age: { type: Number, required: [true, 'Age is required'] },
-    //     contact: { type: Number, required: [true, 'Contact is required'] }
-    //   }
-    // ],
-
     availability: {
       type: Boolean,
       default: true

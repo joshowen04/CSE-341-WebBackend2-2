@@ -23,7 +23,41 @@
       },
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": ["any","any"]
+                },
+                "tags": {
+                  "example": ["any","any"]
+                },
+                "availability": {
+                  "example": true
+                },
+                "typeofPreparation": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+
+
+
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -176,6 +210,33 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "userLevel": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
