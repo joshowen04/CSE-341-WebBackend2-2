@@ -1,4 +1,14 @@
-const inventoryRoutes = require('./routes/inventoryRoutes.js');
+// const inventoryRoutes = require('./routes/inventoryRoutes.js');
+const axios = require('axios');
+const path = require('path');
+
+const https = require('https'),
+  fs = require('fs');
+
+const options = {
+  // key: fs.readFileSync('/srv/www/keys/my-site-key.pem'),
+  // cert: fs.readFileSync('/srv/www/keys/chain.pem')
+};
 
 const express = require('express'),
   app = express(),
@@ -26,6 +36,26 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/static/index.html'));
 });
 
+app.get('/oauth-callback', ({ query: { code } }, res) => {
+  const body = {
+    client_id: process.env.GITHUB_CLIENT_ID,
+    client_secret: process.env.GITHUB_SECRET,
+    code
+  };
+  console.log(body);
+  const opts = { headers: { accept: 'application/json' } };
+  axios
+    .post('https://github.com/login/oauth/access_token', body, opts)
+    .then((_res) => _res.data.access_token)
+    .then((token) => {
+      // eslint-disable-next-line no-console
+      console.log('My token:', token);
+
+      res.redirect(`/?token=${token}`);
+    })
+    .catch((err) => res.status(500).json({ err: err.message }));
+});
+
 const inventoryRouter = require('./routes/inventoryRoutes.js'); //importing route
 inventoryRouter(app);
 
@@ -35,11 +65,13 @@ userRouter(app); //register the route
 const authRouter = require('./routes/authRoutes.js'); //importing route
 authRouter(app); //register the route
 
-app.listen(port, () => console.log(`listening on port ${port}`));
-
 app.use(function (req, res) {
   res.status(404).send({ url: req.originalUrl + ' not found' });
 });
+
+app.listen(port, () => console.log(`listening on port ${port}`));
+
+//https.createServer(options).listen(8080);
 
 // app.get()
 // app.post()

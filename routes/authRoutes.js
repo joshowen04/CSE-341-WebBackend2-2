@@ -5,8 +5,8 @@ module.exports = function (app) {
   const swaggerDocument = require('../swagger.json');
   app.use(swaggerUi.serve);
 
-  app.route('/auth').get();
-  app.rout('/oauth-callback').get();
+  app.route('/auth').get(auth.authRedirect);
+  //app.route('/oauth-callback').get(auth.oauthCallback);
 
   //   app.get('/auth', (req, res) => {
   //     res.redirect(
