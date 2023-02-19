@@ -6,7 +6,7 @@ module.exports = function (app) {
   app.use(swaggerUi.serve);
 
   app.route('/auth').get(auth.authRedirect);
-  //app.route('/oauth-callback').get(auth.oauthCallback);
+  app.route('/oauth-callback').get(auth.oauthCallback);
 
   //   app.get('/auth', (req, res) => {
   //     res.redirect(

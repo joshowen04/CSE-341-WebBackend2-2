@@ -27,7 +27,7 @@ console.log(`Database URL is ${MONGODB_URL}`);
 mongoose.connect(MONGODB_URL);
 
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -36,25 +36,25 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/static/index.html'));
 });
 
-app.get('/oauth-callback', ({ query: { code } }, res) => {
-  const body = {
-    client_id: process.env.GITHUB_CLIENT_ID,
-    client_secret: process.env.GITHUB_SECRET,
-    code
-  };
-  console.log(body);
-  const opts = { headers: { accept: 'application/json' } };
-  axios
-    .post('https://github.com/login/oauth/access_token', body, opts)
-    .then((_res) => _res.data.access_token)
-    .then((token) => {
-      // eslint-disable-next-line no-console
-      console.log('My token:', token);
+// app.get('/oauth-callback', ({ query: { code } }, res) => {
+//   const body = {
+//     client_id: process.env.GITHUB_CLIENT_ID,
+//     client_secret: process.env.GITHUB_SECRET,
+//     code
+//   };
+//   console.log(body);
+//   const opts = { headers: { accept: 'application/json' } };
+//   axios
+//     .post('https://github.com/login/oauth/access_token', body, opts)
+//     .then((_res) => _res.data.access_token)
+//     .then((token) => {
+//       // eslint-disable-next-line no-console
+//       console.log('My token:', token);
 
-      res.redirect(`/?token=${token}`);
-    })
-    .catch((err) => res.status(500).json({ err: err.message }));
-});
+//       res.redirect(`/?token=${token}`);
+//     })
+//     .catch((err) => res.status(500).json({ err: err.message }));
+// });
 
 const inventoryRouter = require('./routes/inventoryRoutes.js'); //importing route
 inventoryRouter(app);
