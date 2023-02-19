@@ -27,6 +27,9 @@ inventoryRouter(app);
 const userRouter = require('./routes/userRoutes.js'); //importing route
 userRouter(app); //register the route
 
+const authRouter = require('./routes/authRoutes.js'); //importing route
+authRouter(app); //register the route
+
 app.listen(port, () => console.log(`listening on port ${port}`));
 
 app.use(function (req, res) {

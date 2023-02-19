@@ -109,21 +109,21 @@ content-type: application/json
 }
 
 ###
-delete https://cse-341-webbackend2-2.onrender.com/63e7378c5aad929118e32df4
+delete https://cse-341-webbackend2-2.onrender.com/inventory/63e85085e0f268f6c6b27276
 
 ###
-get https://cse-341-webbackend2-2.onrender.com/63e72fc595b27d3d2f4e8732
+get https://cse-341-webbackend2-2.onrender.com/inventory/63e85085e0f268f6c6b27276
 
 ###
 ## update contact:
-PUT https://cse-341-webbackend2-2.onrender.com/63e7256f5088ca515d562127
+PUT https://cse-341-webbackend2-2.onrender.com/inventory/63e85085e0f268f6c6b27276
 content-type: application/json
 
 {
     "name": "Lemonade760"
     , "description": "Freshly squeezed and absolutely delicious"
     , "ingredients": ["lemon","ice","water","sugar"]
-    , "tags": ["drink","bubbly","wine"]
+    , "tags": ["drink","bubbly","wine", "wishes"]
     , "availability": true
     , "typeofPreparation": "In Stock"
     , "price": 3.50
@@ -143,26 +143,25 @@ content-type: application/json
     "firstName": "Linda"
     , "lastName": "Owen"
     , "email": "email"
-    , "password": "password"
+    , "password": "password123"
     , "userLevel": "1"
     , "address": "address"
 }
 ###
 ###
-delete https://cse-341-webbackend2-2.onrender.com/63e73955c6cf7b000a486950
-
+delete https://cse-341-webbackend2-2.onrender.com/users/
 ###
-get https://cse-341-webbackend2-2.onrender.com/63e73955c6cf7b000a486950
+get https://cse-341-webbackend2-2.onrender.com/users/63e850f8e0f268f6c6b2727e
 
 ###
 ## update contact:
-PUT https://cse-341-webbackend2-2.onrender.com/63e73955c6cf7b000a486950
+PUT https://cse-341-webbackend2-2.onrender.com/users/63e850f8e0f268f6c6b2727e
 content-type: application/json
 
 {
     "firstName": "Linda"
-    , "lastName": "Owen"
-    , "email": "email"
+    //, "lastName": "Owen"
+    , "email": "email123"
     , "password": "password123"
     , "userLevel": "1"
     , "address": "address"
