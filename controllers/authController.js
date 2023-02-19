@@ -4,7 +4,7 @@ require('dotenv').config({ path: './config/.env' });
 oauthCallback = function ({ query: { code } }, res) {
   const body = {
     client_id: process.env.GITHUB_CLIENT_ID,
-    client_secret: process.env.GITHUB_SECRET,
+    client_secret: process.env.CLIENTSECRET,
     code
   };
   const opts = { headers: { accept: 'application/json' } };
