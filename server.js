@@ -22,8 +22,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/static/index.html'));
+});
+
 const inventoryRouter = require('./routes/inventoryRoutes.js'); //importing route
 inventoryRouter(app);
+
 const userRouter = require('./routes/userRoutes.js'); //importing route
 userRouter(app); //register the route
 
