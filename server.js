@@ -6,8 +6,8 @@ const https = require('https'),
   fs = require('fs');
 
 const options = {
-  // key: fs.readFileSync('/srv/www/keys/my-site-key.pem'),
-  // cert: fs.readFileSync('/srv/www/keys/chain.pem')
+  key: fs.readFileSync('./config/ssl/client-key.pem'),
+  cert: fs.readFileSync('./config/ssl/client-cert.pem')
 };
 
 const express = require('express'),
@@ -71,7 +71,7 @@ app.use(function (req, res) {
 
 app.listen(port, () => console.log(`listening on port ${port}`));
 
-//https.createServer(options).listen(8080);
+https.createServer(options, app).listen(443);
 
 // app.get()
 // app.post()
