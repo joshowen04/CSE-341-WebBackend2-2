@@ -7,6 +7,7 @@ oauthCallback = function ({ query: { code } }, res) {
     client_secret: process.env.CLIENTSECRET,
     code
   };
+  console.log(`my token ${body}`);
   const opts = { headers: { accept: 'application/json' } };
   axios
     .post('https://github.com/login/oauth/access_token', body, opts)
