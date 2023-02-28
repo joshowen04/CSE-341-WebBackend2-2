@@ -5,10 +5,10 @@ const path = require('path');
 const https = require('https'),
   fs = require('fs');
 
-const options = {
-  key: fs.readFileSync('/etc/secrets/client-key.pem'),
-  cert: fs.readFileSync('/etc/secrets//client-cert.pem')
-};
+// const options = {
+//   key: fs.readFileSync('./etc/secrets/client-key.pem'),
+//   cert: fs.readFileSync('./etc/secrets//client-cert.pem')
+// };
 
 const express = require('express'),
   app = express(),
@@ -71,7 +71,7 @@ app.use(function (req, res) {
 
 app.listen(port, () => console.log(`listening on port ${port}`));
 
-https.createServer(options, app).listen();
+//https.createServer(options, app).listen();
 //https.createServer(options, app).listen(port, () => console.log(`listening on port ${port}`));
 
 // app.get()
