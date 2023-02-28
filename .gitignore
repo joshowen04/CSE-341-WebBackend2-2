@@ -4,3 +4,4 @@ node_modules
 .prettierrc
 .eslintrc.js
 config/ssl
+package-lock.json
