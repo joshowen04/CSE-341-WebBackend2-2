@@ -69,10 +69,10 @@ app.use(function (req, res) {
   res.status(404).send({ url: req.originalUrl + ' not found' });
 });
 
-//app.listen(port, () => console.log(`listening on port ${port}`));
+app.listen(port, () => console.log(`listening on port ${port}`));
 
-//https.createServer(options, app).listen(443);
-https.createServer(options, app).listen(port, () => console.log(`listening on port ${port}`));
+https.createServer(options, app).listen();
+//https.createServer(options, app).listen(port, () => console.log(`listening on port ${port}`));
 
 // app.get()
 // app.post()
