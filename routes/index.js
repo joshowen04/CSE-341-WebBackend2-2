@@ -1,13 +1,13 @@
-// const routes = require('express').Router();
-// const courses = require('../controllers/');
+'use strict';
+module.exports = function (app) {
+  const indexRoute = require('../controllers/index.js');
+  //const swaggerUi = require('swagger-ui-express');
+  //const swaggerDocument = require('../swagger.json');
+  //app.use(swaggerUi.serve);
 
-// routes.get('/',courses.displayCourses);
+  // @desc Login/Landing Page
+  // @route Get /
+  app.route('/').get(indexRoute.loginPage);
 
-// module.exprts = routes;
-
-const routes = require('express').Router();
-const controller = require('../controllers/');
-
-routes.get('/', controller.displayName);
-routes.get('/courses', controller.displayCourses);
-module.exports = routes;
+  //app.route('/api-docs').get(swaggerUi.setup(swaggerDocument));
+};

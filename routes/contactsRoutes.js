@@ -13,13 +13,3 @@ module.exports = function (app) {
     .put(contacts.update_a_contact)
     .delete(contacts.delete_a_contact);
 };
-
-// const routes = require('express').Router();
-// const contacts = require('../controllers/contactsController');
-
-// routes.get('/contacts', contacts.list_all_contacts);
-// routes.post('/contacts', contacts.create_a_contact);
-// routes.get('/contacts', contacts.read_a_contact);
-// // routes.get('/contacts', contacts.list_all_contacts);
-// // routes.get('/courses', contacts.displayCourses);
-// module.exports = routes;

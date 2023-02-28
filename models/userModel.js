@@ -3,6 +3,18 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
+    gitHubId: {
+      type: String,
+      required: true
+    },
+    gitHubUserName: {
+      type: String,
+      required: true
+    },
+    gitHubDisplayName: {
+      type: String,
+      required: true
+    },
     firstName: {
       type: String
     },
