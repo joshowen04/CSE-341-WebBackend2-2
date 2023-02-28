@@ -3,5 +3,4 @@ node_modules
 .eslintignore
 .prettierrc
 .eslintrc.js
-config/ssl
-package-lock.json
+etc
